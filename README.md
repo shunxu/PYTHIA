@@ -1,0 +1,1 @@
+The software tool PYTHIA was developed at Bell Laboratories for generating test sequences automatically for protocol data portions; It minimizes the number of tests and guarantees a desirable fault coverage. 
