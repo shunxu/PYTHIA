@@ -38,10 +38,10 @@ XX	replaces	XX
 
 Run the JAR file, and at the same time indicate the input file:
 
-java	–jar	minimization.jar	the_input_file
+java	–jar	minimization.jar	<the_input_filename>.fsm
 
 If the user doesn’t indicate the input file path, nothing would happen.
 
-Then after minimization, in the same directory of the input file, the output file will be generated:	test_minimization.fsm
+Then after minimization, in the same directory of the input file, the output file will be generated:	<the_input_filename>_minimization.fsm
 
 
