@@ -15,3 +15,12 @@ My major contribution to the PYTHIA projects are the following:
 3. Studied the State Explosion problem of the reachability graph of EFSM
 
 4. Implemented the Minimization algorithm for reachability graph, which itself is an FSM
+
+
+****************************************************
+
+License: 
+
+Copyright © 2002-2004 Reserved by Bell Labs Research China
+
+****************************************************
