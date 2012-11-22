@@ -7,7 +7,11 @@ In Conformance Testing, we need to check whether an implementation conforms to i
 A practical criterion of fault coverage is that each transition in the specification EFSM has to be executed at least once. For each transition in the EFSM, we can designate a distinct color to it, and it is also carried over to the induced transitions in the reachability graph, which is an FSM itself. We want to find tests such that all the colors are covered, i.e., the corresponding transitions are executed. Note that the same color may have multiple appearances in the reachability graph. As a result, a complete test set for conformance testing of an EFSM with a color assignment of color set C is a set of test sequences such that each color in C is covered by at least one sequence. For more details, please refer the Lee & Yannakakis's paper.
 
 My major contribution to the PYTHIA projects are the following:
+
 1. Redefined a clear file format for FSM and EFSM
+
 2. Created a parser using Lex & Yacc for parsing FSM and EFSM
+
 3. Studied the State Explosion problem of the reachability graph of EFSM
+
 4. Implemented the Minimization algorithm for reachability graph, which itself is an FSM
