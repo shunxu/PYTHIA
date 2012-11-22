@@ -1,6 +1,6 @@
--- Definition of Input and Output
+<b>-- Definition of Input and Output</b>
 
-Input file:
+<b>Input file:</b>
 
 First line:	start state (only one start state is allowed)
 
@@ -10,7 +10,7 @@ From the third line to the end of file:
 
 		Each line declares one transition: fromState  toState  input
 
-Output file:
+<b>Output file:</b>
 
 Start State:	XX
 
@@ -34,7 +34,7 @@ XX	replaces	XX
 
 ...	replaces	..
 
--- Usage
+<b>-- Usage</b>
 
 Run the JAR file, and at the same time indicate the input file:
 
