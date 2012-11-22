@@ -1,0 +1,40 @@
+GUI EFSM Itis 1.5
+states { 2
+  GetCoin  164.877906964 101.911960132
+  PumpAir  347.789193855 415.81984702700004
+}
+start {
+  GetCoin
+  boolean coin_inserted = false;
+  boolean timer_expired = true;
+}
+transitions { 4
+  PumpAir GetCoin {
+    i { {} }
+    o { {} }
+    p { {timer_expired == true} }
+    a { {} }
+    c { {Black} }
+  }
+  GetCoin GetCoin {
+    i { {insert_coin} }
+    o { {} }
+    p { {true} }
+    a { {coin_inserted = true;} }
+    c { {Black} }
+  }
+  PumpAir PumpAir {
+    i { {timer_expire} {} }
+    o { {} {pump_air} }
+    p { {timer_expired == false} {timer_expired == false} }
+    a { {timer_expired = true;} {} }
+    c { {Black} {Black} }
+  }
+  GetCoin PumpAir {
+    i { {} }
+    o { {} }
+    p { {coin_inserted == true} }
+    a { {timer_expired = false; coin_inserted = false;} }
+    c { {Black} }
+  }
+}

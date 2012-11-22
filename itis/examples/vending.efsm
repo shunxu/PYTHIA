@@ -1,0 +1,41 @@
+GUI EFSM Itis 1.5
+states { 2
+  GetMoney  166.0 126.0
+  AwaitPickup  497.0 338.0
+}
+start {
+GetMoney
+int money=0;
+int coin=0;
+boolean pickup=true;
+}
+transitions { 4
+  GetMoney GetMoney {
+    i { {Insert Dime} {Insert nickle} {} }
+    o { {} {} {} }
+    p { {coin==0 && (money+coin)<20} {coin==0 && (money+coin)<20} {coin!=0 && (money+coin)<20} }
+    a { {coin=10;} {coin=5;} {money+=coin; coin=0;} }
+    c { {White} {White} {White} }
+  }
+  AwaitPickup GetMoney {
+    i { {} }
+    o { {} }
+    p { {pickup == true} }
+    a { {money=0; coin=0;} }
+    c { {Black} }
+  }
+  GetMoney AwaitPickup {
+    i { {} }
+    o { {AlertPickup} }
+    p { {(money+coin)>=20} }
+    a { {money=0; pickup=false;} }
+    c { {Black} }
+  }
+  AwaitPickup AwaitPickup {
+    i { {Pickup} }
+    o { {} }
+    p { {pickup==false} }
+    a { {pickup=true;} }
+    c { {White} }
+  }
+}

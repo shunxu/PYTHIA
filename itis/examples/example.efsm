@@ -1,0 +1,89 @@
+gui efsm
+states { 8
+  S1  361.0 108.0
+  S7  620.0 313.0
+  S4  244.0 387.0
+  S5  465.0 387.0
+  S3  459.0 241.0
+  S6  361.0 520.0
+  S2  254.0 234.0
+  S8  164.252491695 523.554817278
+}
+start {
+S1
+boolean Idle;
+Idle = false;
+
+}
+transitions { 10
+  S3 S4 {
+    i { a34 }
+    o { b34 }
+    p { true }
+    a { {} }
+    c { Black }
+  }
+  S4 S8 {
+    i { a48 }
+    o { b48 }
+    p { true }
+    a { {} }
+    c { Black }
+  }
+  S5 S3 {
+    i { a53 }
+    o { b53 }
+    p { true }
+    a { {} }
+    c { White }
+  }
+  S4 S6 {
+    i { a46 }
+    o { b46 }
+    p { true }
+    a { {} }
+    c { Black }
+  }
+  S4 S5 {
+    i { a45 }
+    o { b45 }
+    p { true }
+    a { {} }
+    c { Black }
+  }
+  S7 S3 {
+    i { a73 }
+    o { b73 }
+    p { true }
+    a { {} }
+    c { White }
+  }
+  S1 S3 {
+    i { a13 }
+    o { b13 }
+    p { true }
+    a { {} }
+    c { White }
+  }
+  S2 S4 {
+    i { a24 }
+    o { b24 }
+    p { true }
+    a { {} }
+    c { White }
+  }
+  S5 S7 {
+    i { a57 }
+    o { b57 }
+    p { true }
+    a { {} }
+    c { White }
+  }
+  S1 S2 {
+    i { a12 }
+    o { b12 }
+    p { true }
+    a { {} }
+    c { White }
+  }
+}
