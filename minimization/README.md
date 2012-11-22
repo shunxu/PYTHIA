@@ -3,24 +3,36 @@
 Input file:
 
 First line:	start state (only one start state is allowed)
+
 Second line:	final states (at least one final state should be declared)
 
 From the third line to the end of file:
+
 		Each line declares one transition: fromState  toState  input
 
 Output file:
-Start State:	XX
-Final States:	XX	XX	XX
-Transitions:	
-XX	XX	XX
-XX	XX	XX
-...    ...      ...
-------------------------------------------------------------
-Maps:
-XX 	replaces	XX
-XX	replaces	XX
-...	replaces	..
 
+Start State:	XX
+
+Final States:	XX	XX	XX
+
+Transitions:	
+
+XX	XX	XX
+
+XX	XX	XX
+
+...    ...      ...
+
+------------------------------------------------------------
+
+Maps:
+
+XX 	replaces	XX
+
+XX	replaces	XX
+
+...	replaces	..
 
 -- Usage
 
