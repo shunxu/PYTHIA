@@ -1,0 +1,113 @@
+format about fsm and efsm
+     
+     
+##========================================##
+## Global variables
+##========================================##
+
+
+
+##========================================##
+##
+##  ## The GUI file format: (grind fsm)
+## 
+## states { N 
+##   name1 x1 y1
+##   name2 x2 y2
+##   ...   ...
+##   nameN xN yN
+## }
+##
+## start { start_state_name }
+##
+## edges { N
+##   from1 to1 label1
+##   from2 to2 label2
+##   ...   ... ...
+##   fromN toN labelN
+## }
+##
+
+##  ## The EFSM file format:
+##
+## gui efsm
+## states { N 
+##   name1 x1 y1
+##   name2 x2 y2
+##   ...   ...
+##   nameN xN yN
+## }
+##
+## start { 
+##   start_state_name  (or '#' if none defined)
+##   startvars (a new node)
+## }
+##
+## transitions { N
+##   from1 to1 {
+##     i { ... }
+##     o { ... }
+##     p { ... }
+##     a { ... }
+##   }
+##  
+##   from2 to2 {
+##     ...
+##   }
+##  
+##   ...
+##  
+## }       
+##
+##  
+##
+##
+##========================================##
+
+
+In fact, there are 3 types of fsm file just as the following:
+
+    /** the FSM file
+     * there are 3 formats of the fsm file,
+     *
+     * the first format is:
+     *
+     * s0
+     * s0	s1	t4
+     * s1	s2	t2
+     * s2	s2	t0
+     * s2	s3	t1
+     * s3	s0	t3
+     * s1	s1	t4
+     *
+     * the second format is:
+     *
+     * s0(GetCoin:coin_inserted=FALSE,timer_expired=TRUE)
+     * s2(PumpAir:coin_inserted=FALSE,timer_expired=FALSE)	s2(PumpAir:coin_inserted=FALSE,timer_expired=FALSE)	I/O: /pump_air P/A: timer_expired==false/
+     * s2(PumpAir:coin_inserted=FALSE,timer_expired=FALSE)	s3(PumpAir:coin_inserted=FALSE,timer_expired=TRUE)	I/O: timer_expire/ P/A: timer_expired==false/timer_expired=true
+     * s0(GetCoin:coin_inserted=FALSE,timer_expired=TRUE)	s1(GetCoin:coin_inserted=TRUE,timer_expired=TRUE)	I/O: insert_coin/ P/A: true/coin_inserted=true
+     * s3(PumpAir:coin_inserted=FALSE,timer_expired=TRUE)	s0(GetCoin:coin_inserted=FALSE,timer_expired=TRUE)	P:timer_expired == true  A:
+     * s1(GetCoin:coin_inserted=TRUE,timer_expired=TRUE)	s1(GetCoin:coin_inserted=TRUE,timer_expired=TRUE)	I/O: insert_coin/ P/A: true/coin_inserted=true
+     * s1(GetCoin:coin_inserted=TRUE,timer_expired=TRUE)	s2(PumpAir:coin_inserted=FALSE,timer_expired=FALSE)	P:coin_inserted == true  A:timer_expired = false; coin_inserted = false;
+     *
+     * the third format(grind format) is:
+     *
+     * states { 4
+     *   s3(PumpAir:coin_inserted=FALSE,timer_expired=TRUE)  100.0 199.0
+     *   s0(GetCoin:coin_inserted=FALSE,timer_expired=TRUE)  170.5 298.0
+     *   s1(GetCoin:coin_inserted=TRUE,timer_expired=TRUE)   322.0 397.0
+     *   s2(PumpAir:coin_inserted=FALSE,timer_expired=FALSE) 277.0 100.0
+     * }
+     * start { s0(GetCoin:coin_inserted=FALSE,timer_expired=TRUE) }
+     * edges { 6
+     *   s2(PumpAir:coin_inserted=FALSE,timer_expired=FALSE)	s2(PumpAir:coin_inserted=FALSE,timer_expired=FALSE)	I/O: /pump_air P/A: timer_expired==false/
+     *   s2(PumpAir:coin_inserted=FALSE,timer_expired=FALSE)	s3(PumpAir:coin_inserted=FALSE,timer_expired=TRUE)	I/O: timer_expire/ P/A: timer_expired==false/timer_expired=true
+     *   s0(GetCoin:coin_inserted=FALSE,timer_expired=TRUE)	s1(GetCoin:coin_inserted=TRUE,timer_expired=TRUE)	I/O: insert_coin/ P/A: true/coin_inserted=true
+     *   s3(PumpAir:coin_inserted=FALSE,timer_expired=TRUE)	s0(GetCoin:coin_inserted=FALSE,timer_expired=TRUE)	P:timer_expired == true  A:
+     *   s1(GetCoin:coin_inserted=TRUE,timer_expired=TRUE)	s1(GetCoin:coin_inserted=TRUE,timer_expired=TRUE)	I/O: insert_coin/ P/A: true/coin_inserted=true
+     *   s1(GetCoin:coin_inserted=TRUE,timer_expired=TRUE)	s2(PumpAir:coin_inserted=FALSE,timer_expired=FALSE)	P:coin_inserted == true  A:timer_expired = false; coin_inserted = false;
+     * }
+     *
+     *
+     */
+     
